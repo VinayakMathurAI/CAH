@@ -452,6 +452,6 @@ export class GameManager {
         this.startNewRound(currentRoom);
         this.rooms.set(roomId, currentRoom);
       }
-    }, 5000); // 5 second delay before new round
+    }, 3000); // 3 second delay before new round
   }
 }

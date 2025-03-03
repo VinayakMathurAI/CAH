@@ -69,6 +69,11 @@ export enum MessageType {
   ROUND_ENDED = 'round_ended',
   GAME_ENDED = 'game_ended',
   
+  // P2P related
+  P2P_HOST_READY = 'p2p_host_ready',
+  P2P_PLAYER_READY = 'p2p_player_ready',
+  P2P_SIGNAL = 'p2p_signal',
+  
   // Errors
   ERROR = 'error'
 }

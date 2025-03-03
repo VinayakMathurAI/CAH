@@ -4,6 +4,44 @@
   padding: 20px;
 }
 
+.connection-toggle {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.connection-toggle button {
+  padding: 10px;
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid #444;
+  margin-bottom: 10px;
+}
+
+.connection-toggle button:last-of-type {
+  margin-bottom: 0;
+}
+
+.connection-toggle button.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.p2p-info {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.p2p-info p {
+  margin: 5px 0;
+}
+
 .logo {
   text-align: center;
   margin-bottom: 30px;

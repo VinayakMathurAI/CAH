@@ -11,6 +11,7 @@ const Home: React.FC<HomeProps> = ({ createRoom, joinRoom }) => {
   const [roomName, setRoomName] = useState('');
   const [roomId, setRoomId] = useState('');
   const [activeTab, setActiveTab] = useState<'create' | 'join'>('create');
+  const [connectionType, setConnectionType] = useState<'server' | 'p2p'>('p2p');
 
   const handleCreateRoom = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +32,28 @@ const Home: React.FC<HomeProps> = ({ createRoom, joinRoom }) => {
       <div className="logo">
         <h2>Cards Against Humanity</h2>
         <p className="tagline">A party game for horrible people.</p>
+      </div>
+      
+      <div className="connection-toggle">
+        <button 
+          className={connectionType === 'p2p' ? 'active' : ''} 
+          onClick={() => setConnectionType('p2p')}
+        >
+          P2P Mode (Play over Internet)
+        </button>
+        <button 
+          className={connectionType === 'server' ? 'active' : ''} 
+          onClick={() => setConnectionType('server')}
+        >
+          Server Mode (Local Only)
+        </button>
+        
+        {connectionType === 'p2p' && (
+          <div className="p2p-info">
+            <p>In P2P mode, one person hosts the game and others connect directly to them.</p>
+            <p>No central server needed - works across the internet!</p>
+          </div>
+        )}
       </div>
       
       <div className="card">
@@ -78,12 +101,14 @@ const Home: React.FC<HomeProps> = ({ createRoom, joinRoom }) => {
                 />
               </div>
               
+              <input type="hidden" id="connectionType" value={connectionType} />
+              
               <button 
                 type="submit" 
                 className="primary"
                 disabled={!playerName || !roomName}
               >
-                Create Room
+                Create Room {connectionType === 'p2p' ? '(as Host)' : ''}
               </button>
             </form>
           ) : (
@@ -112,6 +137,8 @@ const Home: React.FC<HomeProps> = ({ createRoom, joinRoom }) => {
                   required
                 />
               </div>
+              
+              <input type="hidden" id="connectionType" value={connectionType} />
               
               <button 
                 type="submit" 

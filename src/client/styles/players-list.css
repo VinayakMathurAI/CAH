@@ -68,6 +68,37 @@
   font-size: 12px;
   color: #aaa;
   margin-top: 5px;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+.status-played {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #42d168;
+  font-weight: bold;
+  animation: blink-green 2s infinite;
+}
+
+.status-czar {
+  background-color: rgba(255, 82, 82, 0.2);
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.status-choosing {
+  animation: blink-choosing 2s infinite;
+}
+
+@keyframes blink-green {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes blink-choosing {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
 }
 
 .game-info {

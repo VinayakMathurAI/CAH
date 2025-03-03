@@ -28,12 +28,16 @@ const PlayersList: React.FC<PlayersListProps> = ({ room, player }) => {
           
           // Get player status
           let status = '';
+          let statusClass = '';
           if (p.isCardCzar) {
             status = 'Card Czar';
+            statusClass = 'status-czar';
           } else if (hasPlayed) {
-            status = 'Played';
+            status = 'Submitted ✓';
+            statusClass = 'status-played';
           } else if (room.state === GameState.PLAYING) {
             status = 'Choosing...';
+            statusClass = 'status-choosing';
           }
           
           return (
@@ -46,7 +50,7 @@ const PlayersList: React.FC<PlayersListProps> = ({ room, player }) => {
                 {p.id === player?.id && <span className="you-label">(You)</span>}
               </div>
               <div className="player-score">{p.points}</div>
-              {status && <div className="player-status">{status}</div>}
+              {status && <div className={`player-status ${statusClass}`}>{status}</div>}
             </li>
           );
         })}
