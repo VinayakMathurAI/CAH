@@ -14,10 +14,17 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-light);
+  padding-bottom: 80px; /* Add extra padding at the bottom */
 }
 
 button {

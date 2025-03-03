@@ -2,12 +2,18 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .app-header {
   padding: 20px;
   background-color: var(--secondary-color);
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .app-header h1 {
@@ -22,6 +28,10 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 }
 
 .app-footer {
