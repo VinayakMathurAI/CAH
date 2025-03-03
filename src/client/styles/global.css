@@ -1,0 +1,89 @@
+:root {
+  --background-color: #1a1a1a;
+  --card-white: #ffffff;
+  --card-black: #000000;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --accent-color: #ff5252;
+  --secondary-color: #2e2e2e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-light);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+button.primary {
+  background-color: var(--accent-color);
+  color: var(--text-light);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--background-color);
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* Card Animations */
+@keyframes dealCard {
+  from {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes selectCard {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card-enter {
+  animation: dealCard 0.3s ease-out forwards;
+}
+
+.card-selected {
+  animation: selectCard 0.5s ease-out;
+}
+
+.winning-card {
+  box-shadow: 0 0 20px 5px var(--accent-color);
+}

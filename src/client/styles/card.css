@@ -1,0 +1,106 @@
+.card {
+  width: 180px;
+  height: 250px;
+  border-radius: 8px;
+  position: relative;
+  perspective: 1000px;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: dealCard 0.5s ease-out forwards;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card.black-card {
+  background-color: var(--card-black);
+  color: var(--card-white);
+}
+
+.card.white-card {
+  background-color: var(--card-white);
+  color: var(--card-black);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content p {
+  font-size: 16px;
+  font-weight: bold;
+  flex-grow: 1;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.card-logo {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  text-align: center;
+  margin-top: auto;
+}
+
+.card-pick {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.card.selected {
+  transform: translateY(-20px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.card.played {
+  transform: scale(0.9);
+}
+
+.card.winner {
+  box-shadow: 0 0 20px 5px var(--accent-color);
+  transform: scale(1.05);
+}
+
+.card:hover:not(.black-card):not(.played) {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for when a card is clicked */
+.card.white-card:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+/* Card dealing animation */
+@keyframes dealCard {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
